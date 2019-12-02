@@ -14,12 +14,10 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "db:query": "psql -U ptuk1 -d razo0on -a -f ./queries.sql"
   },
-
   "engines": {
-  "node": "8.16.2",
-  "npm": "6.4.1"
-},
-
+    "node": "8.16.2",
+    "npm": "6.4.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RazanTayyem/Reservation.git"

@@ -1,7 +1,7 @@
 {
   "name": "Reservation",
   "version": "1.0.0",
-  "description": "A web app that enables the YDRC staff to coordinate the reservation process in their organization between all of them.",
+  "description": "A web app that enables the PTUK staff to coordinate the reservation process in their organization between all of them.",
   "main": "index.js",
   "scripts": {
     "client-install": "cd client && npm install",
@@ -14,6 +14,12 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "db:query": "psql -U ptuk1 -d razo0on -a -f ./queries.sql"
   },
+
+  "engines": {
+  "node": "8.16.2",
+  "npm": "6.4.1"
+},
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RazanTayyem/Reservation.git"
@@ -41,6 +47,7 @@
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",

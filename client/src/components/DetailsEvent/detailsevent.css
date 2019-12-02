@@ -44,7 +44,6 @@
   margin-left: 600px;
   background-color: #4176d7;
   color: white;
-  color: white;
   padding: 12px 20px;
   border-radius: 4px;
   float: right;
@@ -81,7 +80,7 @@
 .note-description {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   margin-top: 10px;
 }
 

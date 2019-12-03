@@ -3,7 +3,7 @@ const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const router = require('./router');
-// require('env2')('config.env');
+require('env2')('config.env');
 
 const app = express();
 
@@ -18,5 +18,5 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
-app.set('port', 3002);
+app.set('port', process.env.PORT || 3002);
 module.exports = app;

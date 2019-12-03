@@ -12,7 +12,6 @@
     "server": "nodemon ./server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node ./server/server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build",
     "db:query": "psql -U ptuk1 -d razo0on -a -f ./queries.sql"
   },
   "repository": {

@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(router);
 
-app.get('/', (_req, res) => {
+app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 

@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(router);
 
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'client', 'public', 'index.html'));
 });
 
 app.set('port', process.env.PORT || 3002);

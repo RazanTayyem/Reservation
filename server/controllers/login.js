@@ -20,7 +20,7 @@ exports.login = (req, res) => {
         }
         if (result2) {
           const { id, role } = result;
-          const token = jwt.sign({ id, username, role }, process.env.SECRET);
+          const token = jwt.sign({ id, username, role }, 'kjhcebvveldehvlsllhgfd');
           return res.cookie('logged_in', token, { maxAge: 999999999 }).json({ success: 'true', token });
         }
         return res.json({ error: 'password does not match' });

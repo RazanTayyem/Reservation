@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+require('env2')('config.env');
 
 const { User } = require('../database/models');
 

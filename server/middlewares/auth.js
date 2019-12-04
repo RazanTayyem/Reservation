@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie');
-
+require('env2')('config.env');
 const { SECRET } = process.env;
 
 exports.auth = (req, res, next) => {

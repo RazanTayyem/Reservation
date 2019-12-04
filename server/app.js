@@ -3,7 +3,6 @@ const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const router = require('./router');
-require('env2')('config.env');
 
 const app = express();
 

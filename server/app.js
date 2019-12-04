@@ -17,5 +17,4 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
-app.set('port', process.env.PORT || 3002);
 module.exports = app;

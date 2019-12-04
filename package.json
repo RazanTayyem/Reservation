@@ -8,7 +8,7 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "client": "cd client && npm run build && npm run start",
+    "client": "cd client && npm run start",
     "server": "nodemon ./server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node ./server/server.js",

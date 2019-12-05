@@ -6,18 +6,27 @@ import axios from "axios";
 class Login extends Component {
   state = {
     user: {},
-    error: null
+    error: null,
+    logging: false
   };
 
-  componentDidMount() {
+  checkState = () => {
     const { history } = this.props;
-    axios.get("/checkauth").then(({ data }) => {
-      if (data.success) {
-        history.push("/home");
-      } else {
-        history.push("/login");
-      }
-    });
+    axios
+      .get("/checkauth")
+      .then(({ data }) => {
+        if (data.success) {
+          history.push("/home");
+        } else {
+          this.setState({
+            logging: true
+          })
+        }
+      })
+  }
+
+  componentDidMount() {
+    this.checkState();
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -45,44 +54,48 @@ class Login extends Component {
   };
 
   render() {
-    return (
-      <div className="outer-login">
-        <div className="login">
-          <img
-            className="photo"
-            src={Logobig}
-            alt="logo"
-            width="30%"
-            height="370px"
-          />
+    if (this.state.logging) {
+      return (
+        <div className="outer-login">
+          <div className="login">
+            <img
+              className="photo"
+              src={Logobig}
+              alt="logo"
+              width="30%"
+              height="370px"
+            />
 
-          <form className="form" onSubmit={this.handleSubmitForm}>
-            <input
-              className="login-input"
-              type="text"
-              name="username"
-              value={this.state.username}
-              placeholder="username"
-              onChange={this.handleChange}
-            />
-            <input
-              className="login-input"
-              type="password"
-              name="password"
-              placeholder="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-            <button className="btn1" onClick={this.handleClick}>
-              Log in
+            <form className="form" onSubmit={this.handleSubmitForm}>
+              <input
+                className="login-input"
+                type="text"
+                name="username"
+                value={this.state.username}
+                placeholder="username"
+                onChange={this.handleChange}
+              />
+              <input
+                className="login-input"
+                type="password"
+                name="password"
+                placeholder="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+              <button className="btn1" onClick={this.handleClick}>
+                Log in
             </button>
-            {this.state.error != null && (
-              <p className="error-message"> {this.state.error}</p>
-            )}
-          </form>
+              {this.state.error != null && (
+                <p className="error-message"> {this.state.error}</p>
+              )}
+            </form>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <h1> Loading ... </h1>
+    }
   }
 }
 export default Login;
